@@ -53,7 +53,6 @@ class BuildGraph {
     }
     // calculating routes using BFS
     findRoute(from, to, graph) {
-        console.log(graph)
         let work = [{at: from, route: []}];
         for(let i = 0;; i++) {
             let {at, route} = work[i];
