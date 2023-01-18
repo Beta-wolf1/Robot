@@ -62,26 +62,51 @@ class BuildGraph {
     }
 }
 
-const graph = new BuildGraph;
-const findRoute = graph.findRoute;
+// ------- You can build an undirected graph with the above interface ----------
+
+const buildGraph = new BuildGraph;
+// Adding nodes
+buildGraph.addNode("E")
+buildGraph.addNode("B")
+buildGraph.addNode("ED")
+buildGraph.addNode("M")
+buildGraph.addNode("I")
+buildGraph.addNode("MC")
+buildGraph.addNode("G")
+buildGraph.addNode("R")
+buildGraph.addNode("T")
+buildGraph.addNode("H")
+
+// This code can be easily improved by using a for loop to perform this actions
+
+// Adding edges
 
 
+buildGraph.addEdge("E", "B", 20)
+buildGraph.addEdge("E", "MC", 20)
+buildGraph.addEdge("B", "I", 20)
+buildGraph.addEdge("B", "ED", 20)
+buildGraph.addEdge("M", "ED", 20)
+buildGraph.addEdge("B", "M", 20)
+buildGraph.addEdge("I", "M", 20)
+buildGraph.addEdge("MC", "I", 20)
+buildGraph.addEdge("M", "G", 20)
+buildGraph.addEdge("R", "G", 20)
+buildGraph.addEdge("T", "G", 20)
+buildGraph.addEdge("T", "H", 20)
+buildGraph.addEdge("MC", "H", 20)
+console.log(buildGraph)
 
-graph.addNode("A")
-graph.addNode("B")
-graph.addNode("C")
-graph.addNode("D")
-graph.addEdge("A", "B", 3)
-graph.addEdge("A", "C", 3)
-graph.addEdge("B", "C", 3)
-graph.addEdge("B", "D", 3)
-graph.addEdge("D", "C", 3)
-// graph.removeEdge("A", "B")
-// graph.traverseBFS("A")
-// graph.traverseDFS("A", "D")
-// console.log(graph)
-// console.log(findRoute("C", "D", graph.graph))
+// For now the weight doesn't really matter
 
-export { graph }
-
-
+// --------Meaning of Abbreviation----------------
+// E -> Eleigbo
+// B -> Beta's House
+// E -> Ebook Designer
+// M -> Market
+// I -> Idoka
+// MC -> Methodist church
+// G -> God's Praise
+// R -> Redeem Church
+// T -> Town Hall
+// H -> Hotel

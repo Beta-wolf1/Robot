@@ -14,8 +14,3 @@ const runRobot = (state, robot, memory) => {
 // programming is very volatile. Will I have the time to even teach it to fisayo...
 
 // i will surely need graph for this endeavor
-const random = (place) => place[Math.floor(Math.random() * place.length)];
-
-const randomRobot = (state) => {
-    return {destination: random(state.place)}
-}
