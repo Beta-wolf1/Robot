@@ -80,6 +80,8 @@ graph.addEdge("D", "C", 3)
 // graph.traverseBFS("A")
 // graph.traverseDFS("A", "D")
 // console.log(graph)
-console.log(findRoute("C", "D", graph.graph))
+// console.log(findRoute("C", "D", graph.graph))
+
+export { graph }
 
 
