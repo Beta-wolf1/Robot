@@ -32,9 +32,8 @@ class BuildGraph {
         while(queue.length) {
             let current = queue.shift();
             visited[current] = true;
-            for(let node of this.graph.get(current).keys()) {
+            for(let node of this.graph.get(current).keys())
                 if(!visited[node]) queue.push(node);
-            }
         }
     }
     // Traversing graph with DFS
@@ -46,14 +45,28 @@ class BuildGraph {
     }
     _traverseDFS(from, visited) {
         visited[from] = true;
-        console.log(visited)
-        for(let node of this.graph.get(from).keys()) {
+        for(let node of this.graph.get(from).keys()) 
             if(!visited[node]) this._traverseDFS(node, visited)
+    }
+    // calculating routes using BFS
+    findRoute(from, to, graph) {
+        console.log(graph)
+        let work = [{at: from, route: []}];
+        for(let i = 0;; i++) {
+            let {at, route} = work[i];
+            for(let node of graph.get(at).keys()) {
+                if(node == to) return route.concat(node);
+                if(!work.some(e => e.at == node)) work.push({at: node, route: route.concat(node)});
+            }
         }
     }
 }
 
 const graph = new BuildGraph;
+const findRoute = graph.findRoute;
+
+
+
 graph.addNode("A")
 graph.addNode("B")
 graph.addNode("C")
@@ -64,6 +77,9 @@ graph.addEdge("B", "C", 3)
 graph.addEdge("B", "D", 3)
 graph.addEdge("D", "C", 3)
 // graph.removeEdge("A", "B")
-graph.traverseBFS("A")
-graph.traverseDFS("A", "D")
+// graph.traverseBFS("A")
+// graph.traverseDFS("A", "D")
 // console.log(graph)
+console.log(findRoute("C", "D", graph.graph))
+
+
