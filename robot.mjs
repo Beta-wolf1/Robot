@@ -7,8 +7,9 @@ const runRobot = (state, robot, memory) => {
             console.log(`Done in ${turns}`);
             break;
         }
-        let action = robot(state, memory); // what the robot returns matters
+        let action = robot(state, memory);
         state = state.move(action.destination);
+        memory = action.memory;
         console.log(`Moved to ${action.destination}`)
     }
 }

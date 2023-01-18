@@ -39,14 +39,17 @@ class BuildGraph {
     // Traversing graph with DFS
 
     //  The traverseDFS works by recursively visiting all nodes
-    traverseDFS(from) {
+    traverseDFS(from, fn) {
         let visited = {};
-        return this._traverseDFS(from, visited)
+        return this._traverseDFS(from, visited, fn)
     }
-    _traverseDFS(from, visited) {
+    _traverseDFS(from, visited, fn) {
         visited[from] = true;
         for(let node of this.graph.get(from).keys()) 
-            if(!visited[node]) this._traverseDFS(node, visited)
+            if(!visited[node]) {
+                fn(node);
+                this._traverseDFS(node, visited, fn)
+            }
     }
     // calculating routes using BFS
     findRoute(from, to, graph) {
@@ -73,7 +76,6 @@ buildGraph.addNode("M")
 buildGraph.addNode("I")
 buildGraph.addNode("MC")
 buildGraph.addNode("G")
-buildGraph.addNode("R")
 buildGraph.addNode("T")
 buildGraph.addNode("H")
 
@@ -91,7 +93,6 @@ buildGraph.addEdge("B", "M", 20)
 buildGraph.addEdge("I", "M", 20)
 buildGraph.addEdge("MC", "I", 20)
 buildGraph.addEdge("M", "G", 20)
-buildGraph.addEdge("R", "G", 20)
 buildGraph.addEdge("T", "G", 20)
 buildGraph.addEdge("T", "H", 20)
 buildGraph.addEdge("MC", "H", 20)
