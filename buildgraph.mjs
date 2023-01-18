@@ -110,3 +110,5 @@ console.log(buildGraph)
 // R -> Redeem Church
 // T -> Town Hall
 // H -> Hotel
+
+export { buildGraph }

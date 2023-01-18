@@ -1,6 +1,4 @@
-import { graph } from "./buildgraph.mjs";
-
-class CityState {
+export default class CityState {
     constructor(place, parcels, graph) {
         this.place = place;
         this.parcels = parcels;
@@ -26,3 +24,4 @@ class CityState {
         return new CityState(locations[Math.floor(Math.random() * locations.length)], parcels, graph)
     }
 }
+
