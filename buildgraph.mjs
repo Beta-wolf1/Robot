@@ -95,7 +95,6 @@ buildGraph.addEdge("R", "G", 20)
 buildGraph.addEdge("T", "G", 20)
 buildGraph.addEdge("T", "H", 20)
 buildGraph.addEdge("MC", "H", 20)
-console.log(buildGraph)
 
 // For now the weight doesn't really matter
 
